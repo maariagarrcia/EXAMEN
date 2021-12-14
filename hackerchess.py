@@ -1,3 +1,6 @@
+# Funcion strip() ... elimina espacios delanteros y traseros de una cadena
+import random
+import os
 
 
 

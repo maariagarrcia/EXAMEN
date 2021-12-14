@@ -17,6 +17,10 @@ def mezclar_lista(string):
     for letras in lista:
         mezcla=random.sample(lista,len(string))
         print(mezcla)
+        StrLista = "".join(mezcla)
+        print(StrLista)
+    return StrLista
 
     
+
 mezclar_lista(lista)

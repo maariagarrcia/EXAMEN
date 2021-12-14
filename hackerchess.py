@@ -2,8 +2,56 @@
 import random
 import os
 
+def movimiento_ofensivo(r1, r2, jugador):
+    # Busca una torre que se pueda avanzar.
+    # Intentaremos avanzar el máximo posible -> Es un movimiento de ataque.
 
+    columna_movimiento = 0
+    jugada_encontrada = False
+    while not jugada_encontrada and columna_movimiento < n:
+        jugada_encontrada = (r2[columna_movimiento] -
+                             r1[columna_movimiento]) > 1
 
+        if jugada_encontrada:
+            # Calcular nueva posición teniendo en cuenta el jugador que mueve pieza
+            # Se trata de dejar la torre adyacente a la torre del contrario.
+            if jugador == 1:
+                r1[columna_movimiento] = r2[columna_movimiento] - 1
+            else:
+                r2[columna_movimiento] = r1[columna_movimiento] + 1
+
+        else:
+            # La torre no se puede mover hacia adelante así que vamos a intentar con otra pieza ...
+            columna_movimiento = columna_movimiento + 1
+
+    return jugada_encontrada, columna_movimiento
+
+def movimiento_defensivo(r1, r2, jugador):
+
+def jugar(r1, r2, jugador):
+
+def pon_blancas(dim, r1):
+
+def pon_negras(dim, r1, r2):
+
+def verticalRooks(r1, r2):
+    # Esta función es la que "juega" la partida y empieza el jugador 2 segun enunciado.
+
+    fin_partida = False
+    while not fin_partida:
+        # Juega el jugador 2
+        jugada_encontrada, columna_movimiento = jugar(r1, r2, 2)
+        if not jugada_encontrada:
+            resultado = "Gana el jugador " + "1"
+            fin_partida = True      # ---> Partida finalizada
+
+        # Juega el jugador 1
+        jugada_encontrada, columna_movimiento = jugar(r1, r2, 1)
+        if not jugada_encontrada:
+            resultado = "GANA el jugador " + "2"
+            fin_partida = True      # ---> Partida finalizada
+
+    return resultado
 
 
 #####

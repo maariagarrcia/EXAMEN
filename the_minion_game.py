@@ -1,8 +1,12 @@
 def minion_game(string):
     palabra_adivinar=string
     
-def mostrar_subcadenas(string):
-    n=len(string)
-    for n in range(0,n):
-        print(n)
+lista = []
+
+def separar_caracteres(string):
+    for i in string:
+        lista.append(i)
+    print(lista)
+            
+separar_caracteres("hola")
 

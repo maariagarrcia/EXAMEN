@@ -1,3 +1,6 @@
+import random
+
+
 def minion_game(string):
     palabra_adivinar=string
     
@@ -10,3 +13,10 @@ def separar_caracteres(string):
             
 separar_caracteres("hola")
 
+def mezclar_lista(string):
+    for letras in lista:
+        mezcla=random.sample(lista,len(string))
+        print(mezcla)
+
+    
+mezclar_lista(lista)

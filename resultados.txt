@@ -1,0 +1,5 @@
+PARTIDA 0
+Final: Torres jugador 1[0, 1, 1]
+Final: Torres jugador 2[2, 2, 2]
+Gana el jugador 1
+

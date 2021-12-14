@@ -66,8 +66,14 @@ def jugar(r1, r2, jugador):
     return jugada_encontrada, columna_movimiento
 
 def pon_blancas(dim, r1):
+    for columna_actual in range(0, dim):
+        fila = random.randint(0, n-2)
+        r1.append(fila)
 
 def pon_negras(dim, r1, r2):
+    for columna_actual in range(0, dim):
+        fila = random.randint(r1[columna_actual]+1, n-1)
+        r2.append(fila)
 
 def verticalRooks(r1, r2):
     # Esta función es la que "juega" la partida y empieza el jugador 2 segun enunciado.

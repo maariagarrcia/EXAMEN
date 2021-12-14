@@ -27,8 +27,43 @@ def movimiento_ofensivo(r1, r2, jugador):
     return jugada_encontrada, columna_movimiento
 
 def movimiento_defensivo(r1, r2, jugador):
+     # Busca una torre que se pueda mover hacia atras ya que no podemos avanzar
+
+    columna_movimiento = 0
+    jugada_encontrada = False
+    while not jugada_encontrada and columna_movimiento < n:
+        # Calcular nueva posición teniendo en cuenta el jugador que mueve pieza
+        # Retrocedemos una casilla.
+        if jugador == 1:
+            jugada_encontrada = r1[columna_movimiento] > 0
+
+            if jugada_encontrada:
+                r1[columna_movimiento] = r1[columna_movimiento] - 1
+        else:
+            jugada_encontrada = r2[columna_movimiento] < (n-1)
+
+            if jugada_encontrada:
+                r2[columna_movimiento] = r2[columna_movimiento] + 1
+
+        if not jugada_encontrada:
+            # La torre no puede retrocer un paso
+            columna_movimiento = columna_movimiento + 1
+
+    return jugada_encontrada, columna_movimiento
 
 def jugar(r1, r2, jugador):
+    # Calcula el movimiento optimo que debe realizar un jugador.
+    # Intenta buscar un movimiento de ataque que acorrale al contrario
+    # y sino opta por uno defensivo, es decir retrocederemos posiciones.
+
+    jugada_encontrada, columna_movimiento = movimiento_ofensivo(
+        r1, r2, jugador)
+
+    if not jugada_encontrada:
+        jugada_encontrada, columna_movimiento = movimiento_defensivo(
+            r1, r2, jugador)
+
+    return jugada_encontrada, columna_movimiento
 
 def pon_blancas(dim, r1):
 
